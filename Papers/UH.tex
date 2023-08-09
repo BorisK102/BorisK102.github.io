@@ -1,0 +1,911 @@
+
+
+
+\documentclass[potrait]{beamer}
+%\documentclass[t,handout]{beamer}
+
+%%%%%%%%%%%BEAMER%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{graphics}       % Packages to allow inclusion of graphics
+\usepackage{color} 
+%\usepackage{hyperref} % for themes, etc.
+\usepackage{pgf}
+%\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{xcolor}
+%\usepackage{times}  % fonts are up to you
+%\usepackage{epsfig}
+
+
+%\input{epsf.sty}
+
+
+\usepackage[english]{babel}
+
+% \usepackage{pgfpages}
+% \pgfpagelayout{2 on 1}[a4paper,border shrink=5mm]
+
+%\
+\mode<presentation>
+%\usetheme{default}
+%\setbeamercovered{transparent=22}
+%\usetheme[secheader]{Berkeley}
+%\usetheme[secheader]{Boadialla}
+\usetheme{Warsaw}
+
+
+
+% \setbeamercolor{title}{fg=white, bg=blue!70!black}
+% %\setbeamercolor{father}{fg=white, bg=green!20!black}
+% %\setbeamercolor{child}{fg=white, bg=green!20!black}
+% \setbeamercolor{section in toc}{fg=blue!70!black, bg=white}
+% \setbeamercolor{frametitle}{fg=blue!70!black, bg=white}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,amscd}
+
+\usepackage{euscript}
+
+%\usepackage[dvips]{epsfig,graphics}
+\usepackage{latexsym, amsfonts, longtable}
+%\usepackage{epsfig} % for figures
+%\usepackage{psfrag}  % for writing mathematics inside the figure
+%\usepackage{portland}
+
+     \newtheorem{proposition}[theorem]{Proposition}
+      \newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\s}{\mathbb S}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Hp}{\mathbb H}
+\newcommand{\Rk}{\mathbb R^k}
+%\newcommand{\R^m}{\mathbb R^m}
+\newcommand{\Rn}{\mathbb R^n}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Zk}{\mathbb Z^k}
+\newcommand{\Zn}{\mathbb Z^n}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\T}{\mathbb T}
+\newcommand{\m}{\mathbb \mu ^F}
+\newcommand{\Tm}{\mathbb T^m}
+\newcommand{\Tn}{\mathbb T^n}
+
+\newcommand{\A}{\mathcal A}
+\newcommand{\Gm}{GL(m,\mathbb R)}
+\newcommand{\Rmx}{\mathbb R^m_x}
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+
+\def\r{\mathcal R}
+\def\rel{\mathcal R_{\varepsilon,l}}
+\def\RM{\mathcal R^\mu}
+\def\relm{\mathcal R_{\varepsilon,l}^\mu}
+
+
+
+\def\pf{\hfill\hfill{$\square$}} 
+\def\A{\EuScript{A}} 
+\def\B{\EuScript{B}} 
+\def\E{\mathcal{E}}
+\def\F{\tilde F}
+\def\G{\mathcal{G}}
+\def\M{\mathcal{M}}
+\def\W{\mathcal{W}}
+\def\o{\mathcal O}
+\def\c{\EuScript{C}}
+\def\R{\mathbb R}
+\def\rd{{\mathbb R ^d}}   
+\def\C{\mathbb C}
+\def\Z{\mathbb Z}
+\def\N{\mathbb N}
+\def\T{\mathbb T}
+\def\S{\mathbb S}
+\def\dist{\text{dist}}
+\def\diam{\text{diam}}
+\def\Id{\text{Id}}
+\def\e{\epsilon}
+\def\a{\alpha}
+\def\b{\beta}
+\def\la{\lambda}
+\def\Ci{C^\infty}
+
+\def\u{\mathbf v}
+
+
+
+\title{Linear cocycles over hyperbolic systems:\\
+ periodic data and rigidity}
+\author[Boris Kalinin]
+{{\Large Boris Kalinin} }
+\date{}
+
+
+
+
+\begin{document}
+
+%this prints title, author etc. info from above
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle{ Anosov diffeomorphisms }
+
+$f$ -- a diffeomorphism of a compact
+Riemannian manifold $\M$. 
+\vskip.2cm
+%\pause
+
+{\color{blue}{\bf Definition:}} $\;f$ is {\bf Anosov}\, if there exist 
+
+a continuous invariant decomposition $T\M=E^s\oplus E^u$
+
+ and constants $K>0$, 
+$\lambda>0$ such that for all $n\in \N$,
+\vskip.2cm
+$\hskip2cm  \| Df^n(v) \|  \leq K e^{-\lambda n} \| v \|
+     \quad\text{for all }v \in E^s , $
+ \vskip.1cm    
+ $ \hskip1.8cm \| Df^{-n}(v) \| \leq K e^{-\lambda n} \| v \|
+     \quad\text{for all }v \in E^u. $
+
+\vskip.2cm     
+ $E^s$ and $E^u$ -- \,stable and unstable sub-bundles.   
+%\vskip.15cm
+%$f$ is  {\bf transitive} if there exists a point in $\M$ with  dense orbit. 
+\vskip.3cm
+
+\pause    
+{\color{blue}{\bf Basic examples:}} Anosov automorphisms of tori.
+\vskip.05cm
+
+$A$ -- a hyperbolic matrix in $SL(d,\Z)$ (no eigenvalue of modulus 1)
+\vskip.05cm
+$A:\R^d\to \R^d$ projects to an automorphism  of $\;\T^d=\R^d/\Z^d$.  
+%\vskip.3cm
+
+%%\pause 
+%{\color{blue}{\bf Structural stability:}} \, If $f:\M\to \M$ is Anosov then \\
+%any $C^1$ small perturbation $g$ of $f$ is also Anosov and \\
+%topologically conjugate to $f$: $\;\;\;g=h^{-1}\circ f \circ h$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle{Periodic points}
+
+
+Let $f: \M \to \M\,$ be a transitive Anosov diffeomorphism. 
+\vskip.2cm 
+
+%%\pause
+%{\color{blue} $\bullet$} Periodic points of $f$ are dense in $\M$.
+%\vskip.15cm 
+
+%\pause
+
+{\color{blue} {\bf Anosov Closing Lemma.}}\, If 
+$\,\dist (f^n x,x) \le \e$, then there exists
+
+ $p=f^np\,$ such that  $\,\dist (f^i p, f^i x)\le C\e\,$
+ for $i=0, \dots , n$.
+
+\pause
+
+\vskip.3cm
+{\color{blue} {\bf Liv\v{s}ic Theorem.}}  
+Let $\a:\M\to \R\,$ be a H\"older function. Then
+\vskip.2cm
+\hskip3cm $\a(x)=\varphi(fx)-\varphi(x) \qquad (\ast) $
+\vskip.2cm
+has a H\"older continuous solution $\varphi$
+if and only if whenever $f^n p=p$ 
+\vskip.2cm
+\hskip3cm$\,\sum_{i=0}^{n-1} \;\a(f^ip)\,=\,0\,$
+ \vskip.2cm
+Moreover, any measurable solution of $(\ast)$ is H\"older continuous .
+\vskip.3cm
+
+\pause
+{\color{blue}{\bf Corollary.}}\, 
+$f$ preserves a volume 
+iff $\; \det Df^n(p)= 1\,$  for $\,f^n p=p$.
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle{Periodic points}
+
+
+$$\a(x)=\varphi(fx)-\varphi(x) \qquad (\ast) $$
+%\pause
+{\color{blue}{\bf Corollary.}}\, 
+$f$ preserves a volume form
+if and only if 
+
+\hskip1.9cm$ \det Df^n(p)= 1\,$  whenever $\,f^n p=p$.
+
+\pause
+
+\vskip.2cm
+Fix a volume form $\omega$ and 
+let $J_\omega(x)$ be the Jacobian of $f$ w.r.t. $\omega$. 
+\vskip.2cm
+
+If $\omega '=\frac{1}{c(x)}\omega$ then $\,J_{\omega '}(x)=c(fx)^{-1}c(x)J_\omega(x)$.
+\vskip.2cm
+
+\pause
+
+$f$ preserves $\omega '$ $\Leftrightarrow$ $\,J_{\omega '}(x)=1$ for all $x$ 
+$\Leftrightarrow$ $J_\omega(x)=c(fx)\, c(x)^{-1}$
+\vskip.2cm
+
+
+
+$\Leftrightarrow$ $(\ast) $ with 
+ $\a (x) =\log J_\omega$ and $\varphi(x)=\log c(x)$. 
+\vskip.2cm
+
+  
+ \pause
+ A solution exists if and only if 
+$$0=\sum_{i=0}^{n-1} \a(f^ip) =\log \det Df^n(p) \quad \text{whenever}  p=f^np.$$
+
+
+
+\vskip.1cm 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[t]\frametitle{Linear cocycles over hyperbolic systems}
+$f:\M\to \M\;$  a transitive  Anosov diffeomorphism;
+\vskip.3cm
+
+%\pause
+
+$P : \,\E \to \M\;\,$ a finite dimensional vector bundle 
+
+\hskip2.3cm with H\"older continuous Riemannian metric;
+\vskip.3cm
+
+\pause
+$F:\,\E \to \E\;\;\;$ a H\"older continuous linear cocycle over $f$, i.e.
+\vskip.3cm
+\begin{tabular}{lp{0cm}l}
+$
+\begin{array}{ccc}
+\E & \overset{F}{\rightarrow} &\E  \\
+ {\text{{\it \footnotesize P}}}\downarrow  &  &  {\text{{\it \footnotesize P}}}\downarrow  \\
+\M & \overset{f}{\rightarrow}  & \M 
+ \end{array} $&&
+$\begin{array}{c}\text{and $\,F_x : \E_x \to \E_{fx}\,$ is a linear isomorphism \hskip3.6cm} \\\text{ which depends H\"older continuously on $x$.\hskip4cm}
+ \end{array}$
+\end{tabular}
+\vskip.4cm
+
+%\pause    
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[t]\frametitle{Linear cocycles over hyperbolic systems}
+
+$F:\,\E \to \E\;\;\;$ a H\"older continuous linear cocycle over $f$.
+\vskip.3cm
+
+
+{\color{blue}{\bf Example:}} \, {\bf Derivative cocycle.} 
+\vskip.05cm
+The differential $Df$ is a cocycle on the tangent bundle $\E=T\M$. \\
+If $\E'$ is a $Df$-invariant sub-bundle, then $Df|_{\E'}$ is also a cocycle.
+
+\vskip.6cm
+\pause
+
+{\color{blue}{\bf Example:}} {\bf Trivial bundle.} 
+
+ $\E = \M\times \R^d$, 
+\hskip.3cm so $\E_x = \E_{fx}=\R^d$, $\quad F_x\in GL(d,\R)$,
+\vskip.05cm
+ and $F$ can be viewed as a H\"older function $F: \M \to GL(d,\R)$.
+\vskip.6cm
+\pause
+More generally, let $f:\M\to \M\;$ be a hyperbolic system:
+\vskip.1cm
+Anosov diffeomorphism, locally maximal hyperbolic set, \\
+or a symbolic system such as subshift of finite type.
+\vskip.2cm
+
+%\pause    
+\vskip.4cm
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}[t]\frametitle{Periodic data of a cocycle}
+$F:\,\E \to \E\;\;\;$ be a H\"older continuous linear cocycle over $f$.
+
+For a periodic point $\,p=f^np\,$ in $\M$, consider the return map
+\vskip.2cm
+$
+\hskip2cm F^n_p = F_{f^{n-1}p}\circ \cdots \circ F_{fp} \circ F_p : \;\; \E_p \to \E_p
+$
+\vskip.4cm
+%\pause    
+{\color{blue}{\bf Question:}}\,  What can be said about $F$ based on its
+
+\hskip2cm  {\bf periodic data}  $ \,\{F_p^n\}\;$? 
+\vskip.2cm
+\pause    
+In particular, what can be said about $F$ based on Lyapunov exponents
+at periodic points?
+\vskip.2cm
+%\pause
+
+The Lyapunov exponents of $F$ at a periodic point $p=f^np$ \\
+are given by eigenvalues of $F^p_n$: 
+$$\lambda ^{(p)}_i = \frac 1n \, \log \, | i^{th} \text{ eigenvalue of } F^n_p |$$
+
+
+
+%\vskip.2cm
+%$\bullet$ $\;\lambda_+(F,p)-\lambda_ -(F,p) \le \gamma$.
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle{ Oseledets' Multiplicative Ergodic Theorem (1965)}
+
+ 
+Let $f$ be an ergodic measure
+preserving transformation \\ of a Lebesgue probability measure space
+ $(X,\mu)$ and let \\$F: X \to GL(d,\R)\; $ be a measurable cocycle over $f$.
+ \vskip.2cm   %\pause
+ If $\;\log\|F_x\|,\;\log\|F_x^{-1}\| \in L^1(X,\mu)\;$ then   there exist
+ \vskip.05cm
+numbers $\lambda_1 < \dots < \lambda_l$, an $f$-invariant set 
+$\mathcal{R}$ of full measure, \\ and an $F$-invariant decomposition of $\R^d$ 
+for  $x\in \mathcal{R}$ 
+\vskip.2cm
+$
+\hskip2.5cm \R^d_x= E_{\lambda_1}(x)\oplus\dots\oplus E_{\lambda_l}(x)
+$
+\vskip.2cm
+ such that for any nonzero
+$v\in E_{\lambda_i}(x)$, 
+$ 
+\; \underset{n\to{\pm \infty}}{\lim} \frac 1n \log\| F^n_x v \|=  \lambda_i .  
+$
+\vskip.4cm
+The numbers $\,\lambda_1,\dots,\lambda_l\,$ are called 
+the {\bf Lyapunov exponents} of $F$. 
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}[t]\frametitle{Periodic approximation of Lyapunov exponents}
+
+
+
+\begin{theorem} [B.K. 2008]
+
+Let $\;f:\M \to \M$ be a hyperbolic system. \\
+Let $\;F:\,\E \to \E\;$ be a H\"older continuous linear cocycle over $f$. \\
+Let $\,\mu\,$ be  an ergodic invariant measure for $f$. 
+\\
+%\pause
+\ \\
+Then the Lyapunov exponents $\lambda_1 \le ... \le \lambda_d$ 
+ of $F$ with respect 
+ to $\mu$ (listed with multiplicities) can be approximated 
+by the Lyapunov exponents of $F$ at periodic points. 
+ \\
+%\pause
+\ \\
+More precisely,
+for any $\e >0$ there exists a periodic point $p \in \M$ for which the Lyapunov 
+exponents $\lambda_1^{(p)} \le ... \le \lambda_d^{(p)}$ of $F$ satisfy
+$|\lambda_i-\lambda_i^{(p)}|<\e\,$ for $i=1, \dots , d$.
+
+
+\end{theorem} 
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]\frametitle{Uniform growth estimates for cocycles}
+
+
+
+\begin{corollary} 
+Let $F$ be a H\"older linear cocycle over a hyperbolic system $f$. 
+\vskip.2cm
+Suppose that for each periodic point $p=f^np$ \\
+the largest Lyapunov exponent of $F$ at $p$ is at most $\lambda$. 
+\\
+%\pause
+\ \\
+Then for every $\e > 0$ there exists a constant $C_\e$ 
+such that for all $x \in M$ and $n \in \N$
+$$
+ \|  F^n_x \| \le C_{\e} e^{(\lambda  +\e)n}  
+$$
+\end{corollary}
+
+The largest  Lyapunov exponents of $F$ with respect to $\mu$:
+$$
+\lambda_+(F,\mu)=  \lim_{n \to \infty} \frac 1n \log \| F_x ^n \| 
+\quad \quad\quad\;\;\;\text{for } \mu \text { a.e.} \; x\in \M .\hskip.4cm
+$$
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle{ Conformality}
+
+{\bf Quasiconformal distortion}
+\vskip.2cm
+$\hskip.4cm K_F(x,n) = \|F^n_x\| \cdot \| (F^n_x)^{-1}  \| 
+=\,${\Large $\frac{\max\,\{\,\|\,F_x^n\, (v)\,\| :\; v\in \E_x, \;\|v\|=1\,\}}
+            {\,\min\,\{\,\|\,F_x^n\, (v)\,\| :\; v\in \E_x, \;\|v\|=1\,\}}$}
+
+ \vskip.2cm          
+%\pause    
+$F$ is {\bf conformal}  on $\E\,$ if $\,K_F(x,n)=1\;$ 
+for all $x\in \M$ and $n\in \Z$.
+\vskip.3cm
+\pause    
+Three equivalent necessary conditions: whenever $f^np=p$,
+\vskip.1cm
+(1) $F_p^n$ 
+is conformal with respect to an inner product on $\E_p$;
+\vskip.1cm
+(2) $F^n_p$ is diagonalizable over $\C$
+with  eigenvalues equal in modulus;
+\vskip.1cm
+(3) $K_F(p,n) \le C(p)\;$ for all $n$ such that $f^np=p$.
+
+\vskip.2cm
+
+\pause    
+\begin{theorem} [B.K., V. Sadovskaya]  
+Suppose that the fibers of $\E$ are two-dimensional.
+If $F$ satisfies \\ (1) or (2) or (3) at each periodic point,
+then $F$ is \,{\bf conformal} \\ with respect to a H\"older continuous 
+Riemannian metric on $\E$. 
+\end{theorem}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle{ Conformality in higher dimension}
+
+The Theorem does not hold in dimension $\ge 3$:
+\vskip.2cm
+
+There exists $F$ such that at every periodic point
+
+$F^n_p$ is {\em isometric}\, with respect to an inner product on $\E_p$,
+
+but $F$ is not conformal with respect to any continuous metric.
+
+\vskip.4cm
+\pause    
+
+\begin{theorem} [B.K., V. Sadovskaya]  \label{periodic} 
+If there exists a constant $C_{per}$ such that 
+\vskip.2cm
+$ \hskip1.8cm
+K_F(p,n)  \le C_{per} \quad\text {whenever }f^np=p,
+$ 
+\vskip.2cm  
+then $F$ is \,{\bf conformal}  with respect to a H\"older continuous 
+Riemannian metric on $\E$. \\
+\end{theorem}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle{ Isometries}
+
+If $F$ is an {\bf isometry}, then whenever $f^np=p$,
+\vskip.2cm
+(1) $F_p^n$ 
+is an isometry with respect to an inner product on $\E_p$;
+\vskip.2cm
+(2) $F^n_p$ is diagonalizable over $\C$, its eigenvalues 
+are of modulus 1;
+\vskip.2cm
+(3) $ \max\,\{\|F^n_p\|, \|(F^n_p)^{-1}\|\} \le C'(p)\;$   
+for all $n$ such that $f^np=p.$
+\vskip.2cm
+\pause    
+\begin{theorem} [B.K., V. Sadovskaya] 
+For two-dimensional fibers:
+If $F$ satisfies  (1) or (2) or (3) \\at each periodic point, 
+then $F$ is an\, {\bf isometry}
+ with respect \\ to a H\"older continuous 
+Riemannian metric on $\E$. 
+\vskip.3cm
+\pause
+
+In general: if there exists a constant $C'_{per}$ such that 
+\vskip.2cm
+$ \hskip1cm\max\,\{\|F^n_p\|, \|(F^n_p)^{-1}\|\} \le C'_{per}  
+  \quad \text{whenever }f^np=p, $
+\vskip.2cm  
+then $F$ is an\, {\bf isometry}. 
+
+
+\end{theorem}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]\frametitle
+{Isometric  at periodic points, but not conformal, in dim 3}
+
+\begin{example}[dim$\,\E_x \ge 3$]
+There exists $F:\E\to\E$ such that\, 
+whenever $f^np=p$
+
+$F^n_p$ is {\bf isometric}\, with respect to an inner product on $\E_p$, but 
+
+$F$ is {\bf not conformal}\, with respect to any continuous metric on $\E$.
+\end{example}
+\pause    
+\vskip.2cm
+ 
+Let $\E=\M\times \R^3, \qquad   F_x=${\small $\left[ \begin{array}{ccc}
+             \cos \a(x)  & -\sin \a(x)       & \; \e       \\
+             \sin \a(x)   & \;\;\;\cos \a(x) & \; 0         \\
+             0               & 0                    & \; 1    \\             
+           \end{array} \right] .$}
+\vskip.2cm
+\pause    
+Let  $S$  be  a closed $f$-invariant set in $\M$ 
+without  periodic points;
+\vskip.15cm
+
+ $\a : \M\to \R$, 
+ $\;\;\;\a(x)=0\,$ for $x\in S\;$ and $\;0< \a(x) \le \e$ for $x\notin S\;$
+\vskip.3cm
+%\pause    
+% for every periodic $p\,$ and its minimal period $n$,
+%\vskip.1cm
+%$\a(p,n)=\a(f^{n-1}p)+ \dots +\a(p)\ne \pi k$.
+ %\vskip1cm
+   
+
+\begin{tabular}{lp{0cm}l}
+\noindent For $x \in S$,   {\small $\;\;F^n_x=\left[ \begin{array}{ccc}
+             1  & 0       & {\mathbf n}\e       \\
+             0   & 1 & 0        \\
+             0               & 0                    & \; 1    \\             
+           \end{array} \right] $} &&
+$\begin{array}{c} 
+K_F(x,n) \to \infty \text{ as } n\to\infty \Longrightarrow\, \hskip1.1cm \\
+ F \text{ is not conformal 
+w.r. to any } \hskip1cm \\ \text {continuous
+Riemannian metric.}\hskip1cm
+\end{array}$
+\end{tabular}
+\vskip.3cm
+
+\pause
+At $p=f^n p$, $\;\;F^n_p\,$ is diagonalizable
+with eigenvalues of modulus 1.
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[t]\frametitle
+{ Local rigidity for Anosov diffeomorphisms}
+
+$f$ is an Anosov  diffeomorphism and $\;g$ is its $C^1$-small perturbation
+\vskip.05cm
+
+then $\;f=h^{-1}\circ g\circ h,\;\;$ and $h$ is only H\"older continuous in general.
+\vskip.3cm
+\pause    
+If $h$ is smooth, then for any periodic point $p=f^np$,
+\vskip.1cm
+$\hskip2cm  Df^n_p = (Dh_p)^{-1} \circ D g^n_{h(p)} \circ Dh_p.$
+\vskip.25cm
+\pause
+$f$ is called {\bf locally rigid}\, if conjugacy  $\,Df^n_p\,$ and $\,Dg^n_{h(p)}\,$ implies smoothness of $h\,$
+for every $C^1$-small perturbation $g$. 
+\vskip.3cm
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle
+{ Local rigidity for Anosov automorphisms}
+
+  
+{\color{blue}{\bf Question:}}\, Is an Anosov diffeomorphism $f$ locally rigid?
+\vskip.3cm
+%\pause    
+{\bf Yes}\, if \,dim$\,E^u\,$=\,dim$\,E^s =1$ (de la Llave),\,\, 
+\vskip.3cm
+{\bf No}\,\,\, in higher dimension\, (de la Llave).
+\pause
+\vskip.3cm
+{\bf Yes}\, if $Df^n|_{E^s(p)}$,  $Df^n|_{E^u(p)}$ are $k(p)\,Id\;$
+\vskip.1cm
+\hskip.8cm (de la Llave; \, B.K, V. Sadovskaya)
+\pause
+\vskip.3cm
+{\bf Yes}\, if $Df^n|_{E^s(p)}$ and $Df^n|_{E^u(p)}$ are conformal\, and 
+\vskip.1cm
+\hskip.8cm  $\dim E^u = \dim E^s=2\hskip.7cm$  
+(B.K, V. Sadovskaya)
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle
+{ Local rigidity for Anosov automorphisms}
+
+
+\begin{theorem} [Gogolev, B.K., Sadovskaya]
+Let $\,L:\T^d\to\T^d$ be an irreducible Anosov automorphism \\
+such that no three of its eigenvalues have the same modulus.\\
+Then $L$ is \,{\bf locally rigid}, %\pause 
+more precisely
+\vskip.2cm
+
+
+If $g$ is a $C^1$-small perturbation of $L$ 
+with conjugate periodic data,\\
+then $g$ is $C^{1+\text{H\"older}}$ conjugate to $L$.
+
+\end{theorem}
+
+
+\pause
+
+\begin{proposition} Toral automorphisms satisfying the
+assumptions are\, {\bf generic}: \\
+the proportion of matrices $L$ in $SL(d,\Z)$ with  $\| L\| \le T$\\
+that do {\bf not} satisfy the assumptions can be estimated by \\
+$cT^{-\delta}\,$ for some $\,\delta >0$.
+\end{proposition}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}[t]\frametitle{ Role of conformality}
+
+
+Let $L$ be an Anosov automorphism of $\T^d$. $\;L \in SL(d,\Z)$.
+\vskip.1cm
+
+Let $1<\rho_1 <\rho_2< \dots <\rho_m\;\;$  be the distinct moduli of \\
+
+\hskip4.9cm  the unstable eigenvalues of $L$.
+\vskip.2cm
+
+The corresponding splitting:  $\;E^{u,L}=
+E_1^L \oplus E_2^L \oplus \dots \oplus E_m^L$ 
+\pause    
+\vskip.2cm
+For the perturbation $g$: $\hskip.85cmE^{u,g} =
+E_1^g \oplus E_2^g \oplus \dots \oplus E_m^g$
+\vskip.3cm
+
+\pause
+
+
+Since $L$ is irreducible, it is diagonalizable over $\C$, 
+
+and hence $L$ is conformal on each $E_i^L$.
+\vskip.2cm
+
+\pause
+As the periodic data  are conjugate, the cocycle 
+$Dg|_{E_i^g}$ is \\ conformal at the periodic points.
+Since $\dim E_i^g= \dim E_i^L\le 2$,\\ the Theorem implies
+ that $g$  is conformal on $E_i^g$. 
+
+\vskip.2cm
+Conformality of $g$ allows to establish smoothness of $h$ along $E_i^L$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle
+{$GL(2,\R)$-valued cocycles with one exponent}
+ 
+ \vskip.2cm
+% Skip the next:
+%Then $F$ preserves either a H\"older continuous one-dimensional 
+%sub-bundle or a H\"older continuous conformal structure on $\E$.
+
+\begin{proposition}[V. Sadovskaya] 
+Let $F:\M\to GL(2,\R)\,$ be an orientation-preserving cocycle such that
+for each  $p=f^np$, 
+the eigenvalues of 
+$F^n_p $
+are equal in modulus.
+%\pause    
+\vskip.2cm
+ Then, possibly after passing to a double cover,
+$F$ is conjugate to
+\vskip.3cm
+
+$ \;\;k(x)\left[ \begin{array}{cc}1 & \b(x) \\  
+ 0 & 1 \end{array} \right] \text{ or }\;
+ k(x)\Id\quad \text{or}\quad k(x) \left[ \begin{array}{cc} \cos \b(x) & -\sin \b(x) \\ 
+        \sin \b(x)& \;\;\;\cos \b(x) \end{array} \right]
+$
+\vskip.4cm
+\end{proposition}
+
+% add counterexamples and/or comments
+
+\end{frame}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+
+
+\begin{frame}[t]\frametitle{ Structural Theorem}
+
+$F:\E\to \E$ a H\"older continuous linear cocycle, $\;\dim \E_x=d$.
+
+%\pause
+
+\begin{theorem} [B.K, V. Sadovskaya]
+Suppose that for each periodic point $p = f^np$, the eigenvalues \\
+of $F^n_p$ are equal in modulus. \pause
+Then there exists a flag of H\"older continuous $F$-invariant sub-bundles 
+\vskip.15cm
+$\hskip2cm \E^1 \subset ...  \subset \E^{k-1} \subset \E^k =\E \quad\;$
+\vskip.15cm
+
+and H\"older continuous Riemannian metrics on $\E^1$ and \\
+on the factor bundles $\E^{i+1}/\E^{i}$, $\;i=1, ... , k-1$, such that
+\begin{itemize}
+\item $F|_{\E_1}$ is conformal and  
+\item the factor-maps induced by $F$
+on  $\E^{i+1}/\E^{i}$ are conformal.
+\end{itemize}
+ \end{theorem} 
+
+\vskip.2cm
+%\pause
+
+If the flag is trivial then $F$ is conformal on $\E$.
+
+
+\end{frame}
+
+
+\begin{frame}{Structural Theorem -- Special Case}
+If there are $d$ continuous vector fields which give bases 
+for all $\E^i$, 
+%\vskip.1cm
+then $F$ is H\"older 
+cohomologous to a cocycle of the form
+\vskip.5cm
+
+\begin{tabular}{lp{0cm}l}
+{\small $
+ \quad \left[ \begin{array}{cccc}
+ A_1(x) & \ast & \ldots & \ast \\
+ 0  & A_2(x) & \ddots &\vdots \\
+ \vdots & \ddots & \ddots & \ast \\
+ 0 & \ldots & 0 & A_k(x)
+ \end{array} \right]$}
+ & &
+$\begin{array}{c} \text{
+$A_i(x)=l_i(x)O_i(x)$} \hskip.75cm \\  \text{is a scalar 
+ multiple of } \\ \text{an orthogonal matrix.}
+ \end{array}$
+\end{tabular}
+\vskip4cm
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} [t]\frametitle{Polynomial growth}
+
+{\bf Quasiconformal distortion}\, of $F$
+\vskip.2cm
+$
+K_F(x,n)= \|F^n_x\| \cdot \| (F^n_x)^{-1} \| =\;
+${\Large $\frac{\max\,\{\,\|\,F_x^n\, (v)\,\| \,:\; \,v\in \E_x, \;\|v\|=1\,\}}
+            {\,\min\,\{\,\|\,F_x^n\, (v)\,\| \,:\; \,v\in \E_x, \;\|v\|=1\,\}}
+$}
+%\pause
+%\vskip.2cm
+\begin{theorem}
+Suppose that for each periodic point $p = f^np$, \\ the eigenvalues 
+of $F^n_p$ are equal in modulus. 
+\vskip.2cm
+
+Then  $\;\mathbf {K_F(x,n) \le Cn^{2m}}\,$ for all $x\in \M$ and $n\in \N$. 
+\vskip.3cm
+\pause
+If the eigenvalues
+of $F^n_p$ are of modulus 1 whenever $p = f^np$,
+\vskip.2cm 
+then $\,\mathbf{\| F^n_x\| \le Cn^{m}}\,$ for all $x\in \M$ and $n\in \N$. 
+ \end{theorem} 
+\vskip.2cm
+$\mathbf m=\,$ the number of non-trivial sub-bundles in the flag
+$\;\le d-1$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
